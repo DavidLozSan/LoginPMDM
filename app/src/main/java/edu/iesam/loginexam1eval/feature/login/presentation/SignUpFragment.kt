@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import edu.iesam.loginexam1eval.databinding.FragmentLoginBinding
+import androidx.navigation.fragment.findNavController
+import edu.iesam.loginexam1eval.R
+import edu.iesam.loginexam1eval.databinding.FragmentSingUpBinding
 import edu.iesam.loginexam1eval.feature.login.domain.User
 
 class SignUpFragment : Fragment() {
@@ -14,7 +16,7 @@ class SignUpFragment : Fragment() {
     private lateinit var loginFactory: LoginFactory
     private lateinit var viewModel: SignUpViewModel
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentSingUpBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,7 +24,7 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSingUpBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
     }
@@ -33,6 +35,9 @@ class SignUpFragment : Fragment() {
                 val username = username.text.toString()
                 val password = password.text.toString()
                 viewModel.loadRegister(User(username, password))
+            }
+            backToMain.setOnClickListener {
+                findNavController().navigate(R.id.fragment_main)
             }
         }
     }

@@ -33,4 +33,11 @@
         android:layout_margin="16dp"
         android:text="Aceptar" />
 
+    <Button
+        android:id="@+id/back_to_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/back_to_main" />
+
 </LinearLayout>
