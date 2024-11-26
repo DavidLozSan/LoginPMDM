@@ -12,10 +12,24 @@
         tools:layout="@layout/fragment_main" />
 
     <fragment
-        android:id="@+id/fragment_sing_up"
+        android:id="@+id/fragment_sign_up"
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.SignUpFragment"
-        android:label="Register"
+        android:label="SignIn"
         tools:layout="@layout/fragment_sign_up">
+
+        <action
+            android:id="@+id/action_back_to_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_sign_in"
+        android:name="edu.iesam.loginexam1eval.feature.login.presentation.SignInFragment"
+        android:label="SignIn"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_sign_in_to_welcome"
+            app:destination="@+id/view_welcome" />
         <action
             android:id="@+id/action_back_to_main"
             app:destination="@id/fragment_main" />

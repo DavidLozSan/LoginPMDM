@@ -26,13 +26,21 @@ class MainFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
-            singUp.setOnClickListener {
-                navigateToSingUp()
+            signUp.setOnClickListener {
+                navigateToSignUp()
+            }
+
+            signIn.setOnClickListener {
+                navigateToSignIn()
             }
         }
     }
 
-    private fun navigateToSingUp() {
-        findNavController().navigate(R.id.fragment_sing_up)
+    private fun navigateToSignUp() {
+        findNavController().navigate(R.id.fragment_sign_up)
+    }
+
+    private fun navigateToSignIn() {
+        findNavController().navigate(R.id.fragment_sign_in)
     }
 }

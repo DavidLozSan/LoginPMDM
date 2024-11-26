@@ -5,22 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.iesam.loginexam1eval.core.domain.ErrorApp
-import edu.iesam.loginexam1eval.feature.login.domain.SignUpUserUseCase
+import edu.iesam.loginexam1eval.feature.login.domain.SignInUserUseCase
 import edu.iesam.loginexam1eval.feature.login.domain.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class SignUpViewModel(private val signUpUserUseCase: SignUpUserUseCase) : ViewModel() {
+class SignInViewModel(private val signInUserUseCase: SignInUserUseCase) : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
-    fun loadSignUp(user: User) {
+    fun loadSignIn(user: User) {
         _uiState.value = (UiState(isLoading = true))
-
         viewModelScope.launch(Dispatchers.IO) {
-            val result = signUpUserUseCase.invoke(user)
+            val result = signInUserUseCase.invoke(user)
             _uiState.postValue(
                 UiState(
                     isLoading = false,

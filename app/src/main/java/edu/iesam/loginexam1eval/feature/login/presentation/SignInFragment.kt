@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.iesam.loginexam1eval.R
-import edu.iesam.loginexam1eval.databinding.FragmentSignUpBinding
+import edu.iesam.loginexam1eval.databinding.FragmentSignInBinding
 import edu.iesam.loginexam1eval.feature.login.domain.User
 
-class SignUpFragment : Fragment() {
+class SignInFragment : Fragment() {
 
     private lateinit var loginFactory: LoginFactory
-    private lateinit var viewModel: SignUpViewModel
+    private lateinit var viewModel: SignInViewModel
 
-    private var _binding: FragmentSignUpBinding? = null
+    private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,7 +24,7 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
     }
@@ -34,10 +34,13 @@ class SignUpFragment : Fragment() {
             action.setOnClickListener {
                 val username = username.text.toString()
                 val password = password.text.toString()
-                viewModel.loadSignUp(User(username, password))
+                viewModel.loadSignIn(User(username, password))
+
+                findNavController().navigate(SignInFragmentDirections.actionSignInToWelcome())
+
             }
             backToMain.setOnClickListener {
-                findNavController().navigate(R.id.fragment_main)
+                findNavController().navigate(SignInFragmentDirections.actionBackToMain())
             }
         }
     }
@@ -45,7 +48,7 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginFactory = LoginFactory(requireContext())
-        viewModel = loginFactory.buildSignUpViewModel()
+        viewModel = loginFactory.buildSignInViewModel()
         setupObserver()
     }
 
@@ -59,9 +62,9 @@ class SignUpFragment : Fragment() {
 
                 uiState.registered?.let { isRegistered ->
                     if (isRegistered) {
-                        Log.d("@dev", "Usuario dado de alta con exito")
+                        Log.d("@dev", "Bienvenido usuario")
                     } else {
-                        Log.d("@dev", "Este usuario ya existe")
+                        Log.d("@dev", "El usuario o contraseña no es valido")
                     }
                 }
             }
