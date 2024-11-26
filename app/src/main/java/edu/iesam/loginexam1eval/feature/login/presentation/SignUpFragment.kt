@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import edu.iesam.loginexam1eval.R
 import edu.iesam.loginexam1eval.databinding.FragmentSignUpBinding
 import edu.iesam.loginexam1eval.feature.login.domain.User
 
@@ -37,7 +36,7 @@ class SignUpFragment : Fragment() {
                 viewModel.loadSignUp(User(username, password))
             }
             backToMain.setOnClickListener {
-                findNavController().navigate(R.id.fragment_main)
+                findNavController().navigate(SignUpFragmentDirections.actionBackToMain())
             }
         }
     }
@@ -60,6 +59,7 @@ class SignUpFragment : Fragment() {
                 uiState.registered?.let { isRegistered ->
                     if (isRegistered) {
                         Log.d("@dev", "Usuario dado de alta con exito")
+                        findNavController().navigate(SignUpFragmentDirections.actionSignUpToWelcome())
                     } else {
                         Log.d("@dev", "Este usuario ya existe")
                     }

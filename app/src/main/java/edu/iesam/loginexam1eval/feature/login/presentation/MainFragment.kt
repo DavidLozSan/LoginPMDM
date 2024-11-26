@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import edu.iesam.loginexam1eval.R
 import edu.iesam.loginexam1eval.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -37,7 +36,7 @@ class MainFragment : Fragment() {
     }
 
     private fun navigateToSignUp() {
-        findNavController().navigate(R.id.fragment_sign_up)
+        findNavController().navigate(MainFragmentDirections.actionMainToSignUp())
     }
 
     private fun navigateToSignIn() {
