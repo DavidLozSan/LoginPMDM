@@ -34,7 +34,7 @@ class SignUpFragment : Fragment() {
             action.setOnClickListener {
                 val username = username.text.toString()
                 val password = password.text.toString()
-                viewModel.loadRegister(User(username, password))
+                viewModel.loadSignUp(User(username, password))
             }
             backToMain.setOnClickListener {
                 findNavController().navigate(R.id.fragment_main)

@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_main" />
 
     <fragment
-        android:id="@+id/fragment_sing_up"
+        android:id="@+id/fragment_sign_up"
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.SignUpFragment"
         android:label="Register"
         tools:layout="@layout/fragment_sign_up">

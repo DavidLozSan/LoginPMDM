@@ -16,7 +16,7 @@ class SignUpViewModel(private val signUpUserUseCase: SignUpUserUseCase) : ViewMo
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
 
-    fun loadRegister(user: User) {
+    fun loadSignUp(user: User) {
         _uiState.value = (UiState(isLoading = true))
 
         viewModelScope.launch(Dispatchers.IO) {
