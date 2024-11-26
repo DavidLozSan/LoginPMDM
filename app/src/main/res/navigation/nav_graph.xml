@@ -9,7 +9,11 @@
         android:id="@+id/fragment_main"
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_main_to_sign_up"
+            app:destination="@+id/fragment_sign_up" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_sign_up"
@@ -18,17 +22,17 @@
         tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_sign_up_to_welcome"
-            app:destination="@+id/view_welcome" />
+            app:destination="@+id/fragment_welcome" />
         <action
             android:id="@+id/action_back_to_main"
             app:destination="@id/fragment_main" />
     </fragment>
 
     <fragment
-        android:id="@+id/view_welcome"
+        android:id="@+id/fragment_welcome"
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.WelcomeFragment"
         android:label="WelcomeFragment"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcome_to_main"
             app:destination="@id/fragment_main" />

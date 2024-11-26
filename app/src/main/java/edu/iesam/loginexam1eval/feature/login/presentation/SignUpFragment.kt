@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import edu.iesam.loginexam1eval.R
 import edu.iesam.loginexam1eval.databinding.FragmentSignUpBinding
 import edu.iesam.loginexam1eval.feature.login.domain.User
 
@@ -37,7 +36,7 @@ class SignUpFragment : Fragment() {
                 viewModel.loadSignUp(User(username, password))
             }
             backToMain.setOnClickListener {
-                findNavController().navigate(R.id.fragment_main)
+                findNavController().navigate(SignUpFragmentDirections.actionBackToMain())
             }
         }
     }
