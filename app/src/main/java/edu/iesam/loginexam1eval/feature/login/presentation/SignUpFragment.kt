@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.iesam.loginexam1eval.R
-import edu.iesam.loginexam1eval.databinding.FragmentSingUpBinding
+import edu.iesam.loginexam1eval.databinding.FragmentSignUpBinding
 import edu.iesam.loginexam1eval.feature.login.domain.User
 
 class SignUpFragment : Fragment() {
@@ -16,7 +16,7 @@ class SignUpFragment : Fragment() {
     private lateinit var loginFactory: LoginFactory
     private lateinit var viewModel: SignUpViewModel
 
-    private var _binding: FragmentSingUpBinding? = null
+    private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,7 +24,7 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSingUpBinding.inflate(inflater, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         setupView()
         return binding.root
     }
@@ -45,7 +45,7 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginFactory = LoginFactory(requireContext())
-        viewModel = loginFactory.buildRegisterViewModel()
+        viewModel = loginFactory.buildSignUpViewModel()
         setupObserver()
     }
 

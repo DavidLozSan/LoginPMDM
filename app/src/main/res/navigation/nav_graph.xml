@@ -15,7 +15,7 @@
         android:id="@+id/fragment_sing_up"
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.SignUpFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_sing_up">
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_back_to_main"
             app:destination="@id/fragment_main" />

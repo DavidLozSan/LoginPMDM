@@ -10,5 +10,5 @@ class LoginFactory(private val context: Context) {
     private val userDataRepository = UserDataRepository(loginLocal)
     private val signUpUserUseCase = SignUpUserUseCase(userDataRepository)
 
-    fun buildRegisterViewModel(): SignUpViewModel = SignUpViewModel(signUpUserUseCase)
+    fun buildSignUpViewModel(): SignUpViewModel = SignUpViewModel(signUpUserUseCase)
 }
