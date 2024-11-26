@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
-            singUp.setOnClickListener {
+            signUp.setOnClickListener {
                 navigateToSignUp()
             }
         }
