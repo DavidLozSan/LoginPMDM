@@ -17,7 +17,20 @@
         android:label="Register"
         tools:layout="@layout/fragment_sign_up">
         <action
+            android:id="@+id/action_sign_up_to_welcome"
+            app:destination="@+id/view_welcome" />
+        <action
             android:id="@+id/action_back_to_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/view_welcome"
+        android:name="edu.iesam.loginexam1eval.feature.login.presentation.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcome_to_main"
             app:destination="@id/fragment_main" />
     </fragment>
 

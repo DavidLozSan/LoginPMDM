@@ -60,6 +60,7 @@ class SignUpFragment : Fragment() {
                 uiState.registered?.let { isRegistered ->
                     if (isRegistered) {
                         Log.d("@dev", "Usuario dado de alta con exito")
+                        findNavController().navigate(SignUpFragmentDirections.actionSignUpToWelcome())
                     } else {
                         Log.d("@dev", "Este usuario ya existe")
                     }
