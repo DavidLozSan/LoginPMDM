@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LoginExam1Eval</string>
+    <string name="xml_login_name">user-storage</string>
 </resources>
