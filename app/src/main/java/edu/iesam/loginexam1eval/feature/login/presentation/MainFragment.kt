@@ -40,6 +40,6 @@ class MainFragment : Fragment() {
     }
 
     private fun navigateToSignIn() {
-        findNavController().navigate(R.id.fragment_sign_in)
+        findNavController().navigate(MainFragmentDirections.actionMainToSignIn())
     }
 }

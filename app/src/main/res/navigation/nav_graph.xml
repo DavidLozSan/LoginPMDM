@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_main_to_sign_up"
             app:destination="@+id/fragment_sign_up" />
+        <action
+            android:id="@+id/action_main_to_sign_in"
+            app:destination="@+id/fragment_sign_in" />
     </fragment>
 
     <fragment
@@ -20,7 +23,9 @@
         android:name="edu.iesam.loginexam1eval.feature.login.presentation.SignUpFragment"
         android:label="SignIn"
         tools:layout="@layout/fragment_sign_up">
-
+        <action
+            android:id="@+id/action_sign_up_to_welcome"
+            app:destination="@+id/fragment_welcome" />
         <action
             android:id="@+id/action_back_to_main"
             app:destination="@id/fragment_main" />
@@ -33,9 +38,6 @@
         tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_sign_in_to_welcome"
-            app:destination="@+id/view_welcome" />
-        <action
-            android:id="@+id/action_sign_up_to_welcome"
             app:destination="@+id/fragment_welcome" />
         <action
             android:id="@+id/action_back_to_main"
