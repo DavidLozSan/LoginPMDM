@@ -14,4 +14,11 @@ class UserDataRepository(private val local: LoginXmlLocalDataSource) : UserRepos
         }
         return false
     }
+
+    override fun signIn(user: User): Boolean {
+        if (local.findById(user.name) != null) {
+            return true
+        }
+        return false
+    }
 }
