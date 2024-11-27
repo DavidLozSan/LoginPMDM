@@ -33,7 +33,8 @@ class SignInFragment : Fragment() {
             action.setOnClickListener {
                 val username = username.text.toString()
                 val password = password.text.toString()
-                viewModel.loadSignIn(User(username, password))
+                val rememberMe = reminder.isChecked
+                viewModel.loadSignIn(User(username, password), rememberMe)
             }
             backToMain.setOnClickListener {
                 findNavController().navigate(SignInFragmentDirections.actionBackToMain())
@@ -46,6 +47,7 @@ class SignInFragment : Fragment() {
         loginFactory = LoginFactory(requireContext())
         viewModel = loginFactory.buildSignInViewModel()
         setupObserver()
+        viewModel.loadSavedCredentials()
     }
 
     private fun setupObserver() {
@@ -62,6 +64,16 @@ class SignInFragment : Fragment() {
                         Log.d("@dev", "El usuario o contraseña no es valido")
                     }
                 }
+            }
+        }
+        viewModel.savedCredentials.observe(viewLifecycleOwner) { user ->
+            user?.let {
+                binding.apply {
+                    username.setText(it.name)
+                    password.setText(it.password)
+                    reminder.isChecked = true
+                }
+
             }
         }
     }
