@@ -28,10 +28,18 @@ class MainFragment : Fragment() {
             signUp.setOnClickListener {
                 navigateToSignUp()
             }
+
+            signIn.setOnClickListener {
+                navigateToSignIn()
+            }
         }
     }
 
     private fun navigateToSignUp() {
         findNavController().navigate(MainFragmentDirections.actionMainToSignUp())
+    }
+
+    private fun navigateToSignIn() {
+        findNavController().navigate(MainFragmentDirections.actionMainToSignIn())
     }
 }
