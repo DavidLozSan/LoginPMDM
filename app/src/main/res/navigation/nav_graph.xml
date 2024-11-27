@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_main_to_sign_in"
             app:destination="@+id/fragment_sign_in" />
+        <action
+            android:id="@+id/action_main_to_delete_account"
+            app:destination="@+id/fragment_delete_account" />
     </fragment>
 
     <fragment
@@ -51,6 +54,16 @@
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcome_to_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_delete_account"
+        android:name="edu.iesam.loginexam1eval.feature.login.presentation.DeleteAccountFragment"
+        android:label="DeleteAccount"
+        tools:layout="@layout/fragment_delete_account">
+        <action
+            android:id="@+id/action_delete_account_to_main"
             app:destination="@id/fragment_main" />
     </fragment>
 

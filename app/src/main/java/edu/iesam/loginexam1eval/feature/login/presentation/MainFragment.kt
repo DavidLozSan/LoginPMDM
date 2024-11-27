@@ -32,6 +32,10 @@ class MainFragment : Fragment() {
             signIn.setOnClickListener {
                 navigateToSignIn()
             }
+
+            deleteAccount.setOnClickListener {
+                navigateToDeleteAccount()
+            }
         }
     }
 
@@ -41,5 +45,9 @@ class MainFragment : Fragment() {
 
     private fun navigateToSignIn() {
         findNavController().navigate(MainFragmentDirections.actionMainToSignIn())
+    }
+
+    private fun navigateToDeleteAccount() {
+        findNavController().navigate(MainFragmentDirections.actionMainToDeleteAccount())
     }
 }
