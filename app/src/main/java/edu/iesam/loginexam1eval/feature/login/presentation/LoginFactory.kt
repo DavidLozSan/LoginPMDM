@@ -6,6 +6,7 @@ import edu.iesam.loginexam1eval.feature.login.data.UserDataRepository
 import edu.iesam.loginexam1eval.feature.login.data.local.CredentialsXmlLocalDataSource
 import edu.iesam.loginexam1eval.feature.login.data.local.LoginXmlLocalDataSource
 import edu.iesam.loginexam1eval.feature.login.domain.CredentialsUserUseCase
+import edu.iesam.loginexam1eval.feature.login.domain.DeleteAccountUseCase
 import edu.iesam.loginexam1eval.feature.login.domain.SignInUserUseCase
 import edu.iesam.loginexam1eval.feature.login.domain.SignUpUserUseCase
 
@@ -17,8 +18,12 @@ class LoginFactory(private val context: Context) {
     private val credentialsLocal = CredentialsXmlLocalDataSource(context)
     private val credentialsDataRepository = CredentialsDataRepository(credentialsLocal)
     private val credentialsUserUseCase = CredentialsUserUseCase(credentialsDataRepository)
+    private val deleteAccountUseCase = DeleteAccountUseCase(userDataRepository)
 
     fun buildSignUpViewModel(): SignUpViewModel = SignUpViewModel(signUpUserUseCase)
     fun buildSignInViewModel(): SignInViewModel =
         SignInViewModel(signInUserCase, credentialsUserUseCase)
+
+    fun buildDeleteAccountViewModel(): DeleteAccountViewModel =
+        DeleteAccountViewModel(deleteAccountUseCase)
 }

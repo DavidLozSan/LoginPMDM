@@ -4,4 +4,5 @@ interface UserRepository {
 
     fun signUp(user: User): Boolean
     fun signIn(user: User): Boolean
+    fun deleteAccount(user: User): Boolean
 }
