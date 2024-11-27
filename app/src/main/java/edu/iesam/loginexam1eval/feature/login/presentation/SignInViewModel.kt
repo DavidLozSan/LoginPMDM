@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import edu.iesam.loginexam1eval.core.domain.ErrorApp
 import edu.iesam.loginexam1eval.feature.login.domain.SignInUserUseCase
 import edu.iesam.loginexam1eval.feature.login.domain.User
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +29,6 @@ class SignInViewModel(private val signInUserUseCase: SignInUserUseCase) : ViewMo
 
     data class UiState(
         val isLoading: Boolean = false,
-        val errorApp: ErrorApp? = null,
         val registered: Boolean? = null
     )
 }
